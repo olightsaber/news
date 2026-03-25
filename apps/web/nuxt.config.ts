@@ -4,5 +4,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   modules: ['@nuxt/ui'],
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+
+  runtimeConfig: {
+    public: {
+      keycloakUrl: process.env.NUXT_PUBLIC_KEYCLOAK_URL ?? 'http://localhost:8080',
+      keycloakRealm: process.env.NUXT_PUBLIC_KEYCLOAK_REALM ?? 'news',
+      keycloakClientId: process.env.NUXT_PUBLIC_KEYCLOAK_CLIENT_ID ?? 'web-app',
+    },
+  },
 })

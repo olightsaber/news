@@ -1,0 +1,69 @@
+{
+  "realm": "news",
+  "enabled": true,
+  "displayName": "News Platform",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "accessTokenLifespan": 300,
+  "ssoSessionMaxLifespan": 36000,
+  "clients": [
+    {
+      "clientId": "admin-app",
+      "name": "Admin CMS",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3001/*",
+        "https://admin.yourdomain.com/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3001",
+        "https://admin.yourdomain.com"
+      ],
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:3001/*"
+      }
+    },
+    {
+      "clientId": "web-app",
+      "name": "Public Web",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "https://yourdomain.com/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "https://yourdomain.com"
+      ],
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:3000/*"
+      }
+    }
+  ],
+  "roles": {
+    "realm": [
+      { "name": "editor", "description": "Can write and publish articles" },
+      { "name": "admin",  "description": "Full access" }
+    ]
+  },
+  "users": [
+    {
+      "username": "admin",
+      "email": "admin@example.com",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [{ "type": "password", "value": "admin", "temporary": true }],
+      "realmRoles": ["admin", "editor"]
+    }
+  ]
+}

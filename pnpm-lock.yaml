@@ -32,6 +32,9 @@ importers:
       firebase:
         specifier: ^12.10.0
         version: 12.10.0
+      shared:
+        specifier: workspace:*
+        version: link:../../packages/shared
       vue:
         specifier: ^3.5.30
         version: 3.5.30(typescript@5.9.3)
@@ -58,7 +61,7 @@ importers:
   apps/web:
     dependencies:
       '@nuxt/ui':
-        specifier: ^3.0.0
+        specifier: ^3.3.7
         version: 3.3.7(embla-carousel@8.6.0)(typescript@5.9.3)(vite@7.3.1)(vue-router@5.0.3)(vue@3.5.30)
       '@tiptap/html':
         specifier: ^3.20.4
@@ -72,6 +75,9 @@ importers:
       nuxt:
         specifier: ^4.4.2
         version: 4.4.2(@babel/core@7.29.0)(typescript@5.9.3)(vite@7.3.1)
+      shared:
+        specifier: workspace:*
+        version: link:../../packages/shared
       vue:
         specifier: ^3.5.30
         version: 3.5.30(typescript@5.9.3)
@@ -106,6 +112,16 @@ importers:
       typescript:
         specifier: 5.5.4
         version: 5.5.4
+
+  packages/shared:
+    dependencies:
+      keycloak-js:
+        specifier: ^26.1.0
+        version: 26.2.3
+    devDependencies:
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
 
   packages/tsconfig:
     devDependencies:
@@ -8418,6 +8434,10 @@ packages:
       array-includes: 3.1.6
       object.assign: 4.1.4
     dev: true
+
+  /keycloak-js@26.2.3:
+    resolution: {integrity: sha512-widjzw/9T6bHRgEp6H/Se3NCCarU7u5CwFKBcwtu7xfA1IfdZb+7Q7/KGusAnBo34Vtls8Oz9vzSqkQvQ7+b4Q==}
+    dev: false
 
   /keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
